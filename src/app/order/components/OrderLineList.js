@@ -4,7 +4,7 @@ import { Fragment, useContext, useMemo, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useDebouncedCallback } from "use-debounce";
 import { firestore } from "~config/firebase";
-import { maybe } from "~utils";
+import { dynamicSort, maybe } from "~utils";
 import { useNotify } from "~utils/hooks";
 import { OrderContext } from "../index";
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     "& input": {
-      maxWidth: theme.spacing(8),
+      maxWidth: theme.spacing(6),
       marginRight: theme.spacing(1),
     },
   },
@@ -194,7 +194,7 @@ const OrderLineList = () => {
 
   return (
     <div>
-      {orderLine.map((line, idx) => (
+      {orderLine.sort(dynamicSort("name")).map((line, idx) => (
         <Fragment key={idx}>
           <OrderLine key={idx} line={line} deleteLine={deleteLine} />
           {idx + 1 !== orderLine.length && <Divider />}

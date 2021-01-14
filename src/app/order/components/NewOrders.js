@@ -7,7 +7,7 @@ import OrderLineList from "./OrderLineList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: theme.spacing(40),
+    minWidth: theme.spacing(42),
     padding: theme.spacing(1),
   },
   body: {
