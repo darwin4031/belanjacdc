@@ -1,5 +1,7 @@
 import { Container, makeStyles } from "@material-ui/core";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { ProgressToggle } from "~core/components/Progress";
 import BottomBar from "./BottomBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +21,9 @@ const Layout = () => {
   return (
     <div className={classes.root}>
       <Container maxWidth="md" className={classes.container}>
-        <Outlet />
+        <Suspense fallback={<ProgressToggle />}>
+          <Outlet />
+        </Suspense>
       </Container>
       <BottomBar />
     </div>

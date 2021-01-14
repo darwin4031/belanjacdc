@@ -12,8 +12,8 @@ import { useEffect, useState } from "react";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { Controller, useForm } from "react-hook-form";
 import { firestore, storage } from "~config/firebase";
-import { useNotify, useOpen } from "~utils/hooks";
 import { maybe } from "~utils";
+import { useNotify, useOpen } from "~utils/hooks";
 
 const useStyles = makeStyles((theme) => ({
   receiptContainer: {

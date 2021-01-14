@@ -16,6 +16,7 @@ import { firestore } from "~config/firebase";
 import { maybe } from "~utils";
 import { useOpen } from "~utils/hooks";
 import OrdersDetails from "./OrdersDetails";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
